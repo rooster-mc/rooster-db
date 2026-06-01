@@ -1,6 +1,6 @@
-package dev.cypdashuhn.rooster.db.utility_tables
+package dev.rooster.db.utility_tables
 
-import dev.cypdashuhn.rooster.db.RoosterDb
+import dev.rooster.db.RoosterDb
 import org.jetbrains.exposed.sql.Table
 
 abstract class UtilityTable(table: Table) {

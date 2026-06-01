@@ -1,4 +1,4 @@
-package dev.cypdashuhn.rooster.db
+package dev.rooster.db
 
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass

@@ -2,7 +2,7 @@ plugins {
     kotlin("jvm") version "2.2.0"
 }
 
-group = "dev.cypdashuhn.rooster.sql"
+group = "dev.rooster.db"
 version = "1.0-SNAPSHOT"
 
 repositories {

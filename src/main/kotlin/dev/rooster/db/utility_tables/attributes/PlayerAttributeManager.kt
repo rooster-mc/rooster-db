@@ -1,8 +1,8 @@
-package dev.cypdashuhn.rooster.db.utility_tables.attributes
+package dev.rooster.db.utility_tables.attributes
 
-import dev.cypdashuhn.rooster.common.RoosterService
-import dev.cypdashuhn.rooster.db.utility_tables.PlayerManager
-import dev.cypdashuhn.rooster.db.utility_tables.PlayerManager.Companion.dbPlayer
+import dev.rooster.core.RoosterService
+import dev.rooster.db.utility_tables.PlayerManager
+import dev.rooster.db.utility_tables.PlayerManager.Companion.dbPlayer
 import org.bukkit.entity.Player
 import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.sql.Column

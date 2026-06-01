@@ -1,7 +1,7 @@
-package dev.cypdashuhn.rooster.db
+package dev.rooster.db
 
-import dev.cypdashuhn.rooster.common.RoosterSettings
-import dev.cypdashuhn.rooster.common.WarningScaffold
+import dev.rooster.core.RoosterSettings
+import dev.rooster.core.WarningScaffold
 
 enum class DatabaseWarnings(
     override var warningMethod: (Any) -> String = { "" },

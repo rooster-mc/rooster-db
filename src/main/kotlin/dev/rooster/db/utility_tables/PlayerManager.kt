@@ -1,9 +1,9 @@
-package dev.cypdashuhn.rooster.db.utility_tables
+package dev.rooster.db.utility_tables
 
-import dev.cypdashuhn.rooster.common.RoosterService
-import dev.cypdashuhn.rooster.common.util.uuid
-import dev.cypdashuhn.rooster.db.RoosterDb
-import dev.cypdashuhn.rooster.db.utility_tables.PlayerManager.Players.uuid
+import dev.rooster.core.RoosterService
+import dev.rooster.core.util.uuid
+import dev.rooster.db.RoosterDb
+import dev.rooster.db.utility_tables.PlayerManager.Players.uuid
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.event.player.PlayerJoinEvent

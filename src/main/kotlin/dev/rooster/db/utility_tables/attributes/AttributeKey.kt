@@ -1,4 +1,4 @@
-package dev.cypdashuhn.rooster.db.utility_tables.attributes
+package dev.rooster.db.utility_tables.attributes
 
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass

@@ -1,10 +1,10 @@
-package dev.cypdashuhn.rooster.db
+package dev.rooster.db
 
 import com.google.common.cache.CacheBuilder
-import dev.cypdashuhn.rooster.common.RoosterCache
-import dev.cypdashuhn.rooster.common.RoosterModuleBuilder
-import dev.cypdashuhn.rooster.common.RoosterServices
-import dev.cypdashuhn.rooster.common.initRooster
+import dev.rooster.core.RoosterCache
+import dev.rooster.core.RoosterModuleBuilder
+import dev.rooster.core.RoosterServices
+import dev.rooster.core.initRooster
 import org.bukkit.plugin.java.JavaPlugin
 import org.jetbrains.exposed.sql.Table
 import java.util.concurrent.TimeUnit

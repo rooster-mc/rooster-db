@@ -1,4 +1,4 @@
-package dev.cypdashuhn.rooster.db.utility_tables
+package dev.rooster.db.utility_tables
 
 /*
 class ItemManager : UtilityTable(Items), RoosterService {
