@@ -1,6 +1,19 @@
 package dev.rooster.db.utility_tables
 
-/*
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import dev.rooster.core.RoosterService
+import dev.rooster.db.utility_tables.ItemManager.Item.Companion.transform
+import org.bukkit.inventory.ItemStack
+import org.jetbrains.exposed.dao.IntEntity
+import org.jetbrains.exposed.dao.IntEntityClass
+import org.jetbrains.exposed.dao.id.EntityID
+import org.jetbrains.exposed.dao.id.IntIdTable
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
+import org.jetbrains.exposed.sql.and
+import org.jetbrains.exposed.sql.transactions.transaction
+import kotlin.reflect.KClass
+
 class ItemManager : UtilityTable(Items), RoosterService {
     object Items : IntIdTable("RoosterItems") {
         val itemStackJson = text("item")
@@ -8,7 +21,10 @@ class ItemManager : UtilityTable(Items), RoosterService {
 
         val transformedItem = itemStackJson.transform(
             { itemStack -> Gson().toJson(itemStack.serialize()) },
-            { json -> ItemStack.deserialize(Gson().fromJson<Map<String, Any>>(json)) }
+            { json ->
+                val type = object : TypeToken<Map<String, Any>>() {}.type
+                ItemStack.deserialize(Gson().fromJson(json, type))
+            }
         )
     }
 
@@ -22,7 +38,7 @@ class ItemManager : UtilityTable(Items), RoosterService {
 
     fun upsertItem(itemStack: ItemStack, key: String? = null, ignoreKeyItems: Boolean = false): Item {
         return transaction {
-            val itemStackSerialized = itemStack.serialize()
+            val itemStackSerialized = Gson().toJson(itemStack.serialize())
 
             var query = Items.itemStackJson eq itemStackSerialized
             if (!ignoreKeyItems && key != null) query = query and (Items.key eq key)
@@ -44,4 +60,4 @@ class ItemManager : UtilityTable(Items), RoosterService {
     }
 
     override fun targetClass(): KClass<out RoosterService> = ItemManager::class
-}*/
+}
