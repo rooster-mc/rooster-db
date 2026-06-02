@@ -25,7 +25,7 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-dao:0.49.0")
     implementation("org.jetbrains.exposed:exposed-json:0.49.0")
 
-    implementation(project(":RoosterCore"))
+    implementation("dev.rooster.core:rooster-core:1.0-SNAPSHOT")
 }
 
 tasks.test {
