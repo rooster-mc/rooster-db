@@ -17,9 +17,8 @@ object RoosterDb {
     internal var services: RoosterServices = RoosterServices()
     val tables = mutableListOf<Table>()
 
-    fun init(
+    fun setup(
         plugin: JavaPlugin,
-        tables: List<Table>,
         services: RoosterServices? = null,
         cache: RoosterCache<String, Any>? = null
     ) {
@@ -28,12 +27,21 @@ object RoosterDb {
         this.cache = cache ?: RoosterCache(
             CacheBuilder.newBuilder().expireAfterWrite(5, TimeUnit.MINUTES)
         )
+    }
 
+    fun init(
+        plugin: JavaPlugin,
+        tables: List<Table>,
+        services: RoosterServices? = null,
+        cache: RoosterCache<String, Any>? = null
+    ) {
+        setup(plugin, services, cache)
         initDatabase(tables)
         initRooster(plugin, this.services, this.cache)
     }
 }
 
 fun RoosterModuleBuilder.db(tables: List<Table>) {
-    RoosterDb.init(plugin, tables, services, cache)
+    RoosterDb.setup(plugin, services, cache)
+    afterHooks += { initDatabase(tables) }
 }
